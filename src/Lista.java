@@ -1,30 +1,40 @@
-public class Lista <T> {
-    private Nodo<T> head;
-    private Nodo<T> tail;
-    private int size;
-
+public class Lista<T> {
+    private Nodo<T> first;
+    private Nodo<T> last;
     public Lista() {
-        this.head = null;
-        this.tail = null;
-        this.size = 0;
+        this.first = null;
+        this.last=null;
     }
 
-
-    public void add(T value) {
+    public void addHead(T value) {
         Nodo<T> newNodo = new Nodo<>(value);
-        if (head == null) {
-            head = newNodo;
-            tail = newNodo;
+        if (first == null) {
+            first = newNodo;
+            last = newNodo;
         } else {
-            tail.setNext(newNodo);
-            tail = newNodo;
+            first.setPrev(newNodo);
+            newNodo.setNext(first);
+            first = newNodo;
         }
-        size++;
     }
 
     public int getSize() {
+        int size = 0;
+        Nodo<T> temp = first;
+        while (temp != null) {
+            size++;
+            temp = temp.getNext();
+        }
         return size;
     }
-
-
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Nodo<T> current = first;
+        while (current != null) {
+            sb.append(current.getValue()).append(" ");
+            current = current.getNext();
+        }
+        return sb.toString().trim();
+    }
 }
