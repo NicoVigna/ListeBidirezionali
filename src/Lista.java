@@ -1,6 +1,6 @@
 public class Lista <T> {
-    private Node<T> head;
-    private Node<T> tail;
+    private Nodo<T> head;
+    private Nodo<T> tail;
     private int size;
 
     public Lista() {
@@ -9,14 +9,15 @@ public class Lista <T> {
         this.size = 0;
     }
 
+
     public void add(T value) {
-        Node<T> newNode = new Node<>(value);
+        Nodo<T> newNodo = new Nodo<>(value);
         if (head == null) {
-            head = newNode;
-            tail = newNode;
+            head = newNodo;
+            tail = newNodo;
         } else {
-            tail.setNext(newNode);
-            tail = newNode;
+            tail.setNext(newNodo);
+            tail = newNodo;
         }
         size++;
     }
