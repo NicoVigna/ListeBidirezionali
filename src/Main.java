@@ -5,7 +5,7 @@ public class Main {
         l1.addHead("Chiarenza");
         l1.addHead("Butt");
         System.out.println(l1);
-
+        System.out.println(l1.toStringReverse());
         
     }
 }

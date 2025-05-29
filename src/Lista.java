@@ -27,7 +27,20 @@ public class Lista<T> {
         }
         return size;
     }
-    @Override
+
+    public String toStringReverse() {
+        StringBuilder sb = new StringBuilder();
+        Nodo<T> current = last;
+        while (current != null) {
+            sb.append(current.getValue()).append(" ");
+            current = current.getPrev();
+        }
+        return sb.toString().trim();
+    }
+
+ 
+
+@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Nodo<T> current = first;
